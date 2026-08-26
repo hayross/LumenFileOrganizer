@@ -1,0 +1,81 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lumen — Gizlilik Politikası</title>
+<meta name="description" content="Lumen hiçbir veri toplamaz; her şey cihazınızda kalır.">
+<style>
+:root{--bg:#fbfbfd;--fg:#1c1c22;--muted:#5b5b6b;--line:#e3e3ea;--accent:#2f5fd0;
+--card:#fff;--code:#f2f2f7}
+@media (prefers-color-scheme:dark){:root{--bg:#15151a;--fg:#e9e9f0;--muted:#a0a0b0;
+--line:#2b2b34;--accent:#7ea2f5;--card:#1c1c23;--code:#22222a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font:16px/1.65 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:44rem;margin:0 auto;padding:3rem 1.25rem 5rem}
+header{border-bottom:1px solid var(--line);padding-bottom:1.25rem;margin-bottom:2rem}
+h1{font-size:1.9rem;line-height:1.25;margin:0 0 .4rem}
+h2{font-size:1.18rem;margin:2.4rem 0 .7rem;padding-top:.4rem}
+h3{font-size:1rem;margin:1.6rem 0 .5rem}
+p,li{color:var(--fg)}
+.meta{color:var(--muted);font-size:.92rem;margin:0}
+.lang{float:right;font-size:.92rem}
+.lang a{color:var(--accent);text-decoration:none}
+.lang a:hover{text-decoration:underline}
+blockquote{margin:1.2rem 0;padding:.85rem 1.1rem;background:var(--card);
+border-left:3px solid var(--accent);border-radius:0 6px 6px 0}
+blockquote p{margin:.3rem 0}
+code{background:var(--code);padding:.12em .38em;border-radius:4px;font-size:.9em}
+table{border-collapse:collapse;width:100%;margin:1.1rem 0;font-size:.95rem;
+display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:.5rem .65rem;text-align:left;
+vertical-align:top}
+th{background:var(--card)}
+hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
+footer{color:var(--muted);font-size:.9rem;margin-top:2.5rem;
+border-top:1px solid var(--line);padding-top:1.1rem}
+a{color:var(--accent)}
+ul{padding-left:1.3rem}
+</style>
+<div class="wrap">
+<header>
+  <div class="lang"><a href="en.html">English</a></div>
+  <h1>Lumen — Gizlilik Politikası</h1>
+  <p class="meta">Lumen — Yerel Dosya Otomasyonu (Windows 10/11)</p>
+</header>
+<p><strong>Son güncelleme:</strong> 17 Ağustos 2026 <strong>Uygulama:</strong> Lumen — Yerel Dosya Otomasyonu (Windows 10/11)</p>
+<h2>1. Özet</h2>
+<p><strong>Lumen hiçbir veri toplamaz.</strong> Uygulama tamamen cihazınızda çalışır; dosya içerikleriniz, kurallarınız ve ajan geçmişiniz cihazınızdan asla çıkmaz. Bizim bir sunucumuz yoktur; dolayısıyla size ait hiçbir veriyi alma, saklama veya paylaşma imkânımız da yoktur.</p>
+<blockquote><p><strong>v2.33'te ağ izleme özelliği tamamen kaldırıldı.</strong> Uygulama artık hangi</p><p>programın hangi sunucuya bağlandığını okumuyor, sistem DNS önbelleğini</p><p>açmıyor, trafik ölçmüyor. İlgili kod, veritabanı tabloları ve panel sekmesi</p><p>silindi. Bu politika o özelliği tarif ettiği için güncellenmiştir.</p></blockquote>
+<h2>2. Toplamadığımız veriler</h2>
+<p>Aşağıdakilerin <strong>hiçbiri</strong> toplanmaz, gönderilmez veya üçüncü taraflarla paylaşılmaz:</p>
+<ul><li>Dosya adları, dosya içerikleri, klasör yapısı</li><li>OCR veya yapay zeka sınıflandırma sonuçları</li><li>Kullanım istatistikleri, özellik kullanımı, oturum süreleri</li><li>Çökme (crash) raporları, hata günlükleri, tanılama verisi</li><li>Cihaz kimliği, IP adresi, konum, kullanıcı hesabı bilgisi</li></ul>
+<p><strong>Telemetri tasarım gereği yoktur</strong> — açılıp kapatılabilen bir ayar değildir; uygulamada böyle bir kod yolu bulunmamaktadır.</p>
+<h2>3. Verileriniz nerede saklanır?</h2>
+<p>Tüm veriler yalnızca kendi bilgisayarınızda, şu klasörde tutulur:</p>
+<p>``<code> %APPDATA%\Lumen\ config.json      ayarlar rules.json       kurallarınız lumen.db         SQLite: işlem geçmişi, dosya kaynakları, ajan önerileri models\          (opsiyonel) indirdiyseniz yerel yapay zeka modeli Quarantine\      karantinaya alınan dosyalar </code>``</p>
+<p>Bu klasörü silmek, uygulamayı tamamen sıfırlar. Ayarlarınızı ve kurallarınızı panelden yedek dosyası olarak dışa aktarabilirsiniz.</p>
+<h2>4. İnternet bağlantısı: nerede, neden?</h2>
+<p>Lumen <strong>çevrimdışı çalışır.</strong> İnternete yalnızca aşağıdaki durumlarda, yalnızca siz açıkça bir düğmeye bastığınızda bağlanır:</p>
+<table><thead><tr><th>Ne zaman</th><th>Nereye</th><th>Ne gönderilir</th></tr></thead><tbody><tr><td>"Model paketini indir"</td><td>github.com (llama.cpp), huggingface.co (model dosyası)</td><td>Yalnızca standart bir indirme isteği. Verileriniz gönderilmez.</td></tr><tr><td>"Güncellemeleri denetle"</td><td>Aynı iki adres (sürüm/boyut sorgusu)</td><td>Yalnızca sürüm sorgusu. Verileriniz gönderilmez.</td></tr><tr><td>"Dil paketi ekle"</td><td>Microsoft Windows Update</td><td>İşletim sisteminin standart kurulum akışıdır; Lumen'e veri gitmez.</td></tr></tbody></table>
+<p>Bunların hiçbiri zorunlu değildir; hiçbirini kullanmadan Lumen tam olarak çalışır. Bu üç düğmenin dışında uygulamanın internete çıkan hiçbir kod yolu yoktur — <code>telemetry_audit.py</code> bunu hem kaynak kodunu tarayarak hem de uygulama çalışırken soketleri izleyerek her derlemede doğrular.</p>
+<h2>5. Yapay zeka (OCR ve SLM)</h2>
+<ul><li><strong>OCR</strong>, Windows'un kendi <code>Windows.Media.Ocr</code> bileşenini kullanır. Belgeleriniz</li></ul>
+<p>cihazınızda işlenir.</p>
+<ul><li><strong>SLM (küçük dil modeli)</strong>, indirmeyi seçerseniz bilgisayarınızda, yalnızca</li></ul>
+<p><code>127.0.0.1</code> (kendi cihazınız) üzerinde çalışan yerel bir süreçtir. Belge metinleri bu yerel sürecin dışına çıkmaz.</p>
+<ul><li>Yapay zeka özelliklerini Ayarlar'dan tamamen kapatabilirsiniz; kural motoru</li></ul>
+<p>yapay zeka olmadan da çalışır.</p>
+<h2>6. Hassas klasör şifrelemesi</h2>
+<p>"Hassas Klasörler" özelliğini kullanırsanız dosyalarınız Windows DPAPI ve sizin belirlediğiniz parola ile şifrelenir. <strong>Parolanız hiçbir yere kaydedilmez</strong> ve bize iletilmez; bu nedenle parolanızı unutmanız hâlinde dosyalarınızı kurtarmamız mümkün değildir.</p>
+<h2>7. Üçüncü taraf yazılımlar</h2>
+<p>Model paketini indirmeyi seçerseniz, cihazınıza açık kaynaklı <code>llama.cpp</code> çalıştırılabilir dosyası ve bir dil modeli iner. Bu bileşenler kendi lisansları kapsamındadır ve yalnızca yerel olarak çalışır.</p>
+<h2>8. Çocukların gizliliği</h2>
+<p>Lumen 13 yaş altı çocuklara yönelik değildir ve onlardan bilerek veri toplamaz (zaten hiç kimseden veri toplamaz).</p>
+<h2>9. Değişiklikler</h2>
+<p>Bu politika güncellenirse yeni sürüm uygulama ile birlikte dağıtılır ve "Son güncelleme" tarihi değişir. Veri toplamaya başlamak, bu ürünün temel tasarım ilkesine aykırı olduğundan planlanmamaktadır.</p>
+<h2>10. İletişim</h2>
+<p>Gizlilikle ilgili sorularınız için: <code>hayros@gmail.com</code></p>
+<hr>
+<p>geçirtmeniz önerilir.*</p>
+<footer>Lumen · yerel dosya otomasyonu · sıfır telemetri</footer>
+</div>
